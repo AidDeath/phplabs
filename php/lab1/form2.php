@@ -7,10 +7,19 @@ $_SESSION["address"] = $_GET["address"];
 $_SESSION["phone"] = $_GET["phone"];
 
 ?>
+<script>
+function updateCount(val) {
+   if (val == 101) {
+    document.getElementById('drug_count').innerHTML=">100"; }
+else {document.getElementById('drug_count').innerHTML=val;}
+  }
+</script>
+
+
+
 <body>
 <main>
         <article>  
-<!--            -->
        
         <form  class="form-style-1" id="mainForm" autocomplete="off"   action="form3.php" >
                     <fieldset>
@@ -19,18 +28,24 @@ $_SESSION["phone"] = $_GET["phone"];
                         </legend>
 
                         <p><label for="drug_type">Тип препарата</label>
-                        <select name="drug_type" value= "<?php echo isset($_SESSION["drug_type"]) ? $_SESSION["drug_type"] : "Форма лекарства";?>">
-                        <option>
+                        <select name="drug_type">
+                        <option <?php if ($_SESSION['drug_type'] == 'Уколы для иньекций') echo ("selected");?>>
                                 Уколы для иньекций
                          </option>
-                         <option>
+                         <option <?php if ($_SESSION['drug_type'] == 'Таблетки') echo ("selected");?>>
                                 Таблетки
                          </option>
-                         <option>
+                         <option <?php if ($_SESSION['drug_type'] == 'Порошок') echo ("selected");?>>
                                 Порошок
                          </option>
-                         <option>
+                         <option <?php if ($_SESSION['drug_type'] == 'Капли') echo ("selected");?>>
                                 Капли
+                         </option>
+                         <option <?php if ($_SESSION['drug_type'] == 'Суспензия') echo ("selected");?>>
+                                Суспензия
+                         </option>
+                         <option <?php if ($_SESSION['drug_type'] == 'Спрей') echo ("selected");?>>
+                                Спрей
                          </option>
                         </select></p>
 
@@ -38,15 +53,25 @@ $_SESSION["phone"] = $_GET["phone"];
                         <p><label for="price">Цена &#128<span class="required">*</span></label>
                         <input type="number" name ="price" required value= "<?php echo isset($_SESSION["price"]) ? $_SESSION["price"] : "100";?>"> </p>
                         
+
                         <p><label for="count">Количество упаковок</label>  
-                        <input type="range" name="drug_count" min="1" max="101" step="1" value= "<?php echo isset($_SESSION["drug_count"]) ? $_SESSION["drug_count"] : "1";?>" onchange="">
-                        <span name="drug_count" value =1>1</span>
+                        <input type="range" name="drug_count"  min="1" max="101" step="1" value= "<?php echo isset($_SESSION["drug_count"]) ? $_SESSION["drug_count"] : "1";?>" onchange="updateCount(this.value);">
+                        <span id="drug_count"><?php echo isset($_SESSION["drug_count"]) ? $_SESSION["drug_count"] : "1";?></span>
                         </p>                        
                         
                         <p><label for="dose">Дозировка</label> 
-                            <input type="radio" name="dose" value="Взрослая" checked>Взрослая
-                            <input type="radio" name="dose" value="Детская">Детская
                             <br/>
+                            <?php 
+                                   if($_SESSION["dose"] == "Взрослая" || !isset ($_SESSION['dose'])) {
+                                   echo '<input type="radio" name="dose" value="Взрослая" checked>Взрослая';
+                                   echo '<input type="radio" name="dose" value="Детская">Детская';  }
+                                   
+                                   if($_SESSION["dose"] == "Детская") {
+                                   echo '<input type="radio" name="dose" value="Взрослая">Взрослая';
+                                   echo '<input type="radio" name="dose" value="Детская" checked>Детская'; }
+                                   
+                            ?>
+
                         </p> 
                         
                         </div>

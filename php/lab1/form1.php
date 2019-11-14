@@ -1,10 +1,10 @@
 <?php 
 session_start ();
 require("../../header.php"); 
-$_SESSION["drug_type"] = $_GET["store_name"];
-$_SESSION["drug_count"] = $_GET["drug"];
-$_SESSION["price"] = $_GET["address"];
-$_SESSION["phone"] = $_GET["phone"];
+$_SESSION["drug_type"] = $_GET["drug_type"];
+$_SESSION["drug_count"] = $_GET["drug_count"];
+$_SESSION["price"] = $_GET["price"];
+$_SESSION["dose"] = $_GET["dose"];
 ?>
 <body>
 <main>
