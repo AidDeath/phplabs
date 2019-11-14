@@ -32,7 +32,7 @@ $_SESSION["dose"] = $_GET["dose"];
                         
                 </fieldset>
                         <p><input type="submit" value="Далее"></p>
-                        <p><button type="reset" value="Отмена(in work)" action="form1.php"></p>
+                        <p><button type="reset" value="Отмена (in work)"></p>
         </form>
         </article>
         <br>

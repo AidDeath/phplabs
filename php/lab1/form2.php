@@ -4,7 +4,13 @@ require("../../header.php");
 $_SESSION["store_name"] = $_GET["store_name"];
 $_SESSION["drug"] = $_GET["drug"];
 $_SESSION["address"] = $_GET["address"];
-$_SESSION["phone"] = $_GET["phone"];
+$_SESSION["phone"] = $_GET["phone"]; //данные из формы 1 пишем в сессию
+
+$_SESSION["date"] = $_GET["date"];
+$_SESSION["email"] = $_GET["email"];
+$_SESSION["url"] = $_GET["url"];
+if (!isset($_GET['receipt'])) unset($_SESSION["receipt"]);
+if (isset($_GET['receipt'])) $_SESSION["receipt"] = $_GET["receipt"];   //данные из формы 3 пишем в сессию
 
 ?>
 <script>
@@ -77,7 +83,7 @@ else {document.getElementById('drug_count').innerHTML=val;}
                         </div>
                         
                 </fieldset>
-                        <p><input type="submit" value="Далее (в процессе)"></p>
+                        <p><input type="submit" value="Далее"></p>
                         <p><input type="submit" formaction="form1.php" value="Назад"></p>                
        </form>               
        </article>
