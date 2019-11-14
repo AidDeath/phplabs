@@ -1,0 +1,47 @@
+<?php require("../../header.php"); ?>
+<body>
+<main>
+        <article>  
+<!--            -->
+<?php session_start();?>
+       
+        <form  class="form-style-1" method="get" autocomplete="off" onsubmit="form2.php" >
+                    <fieldset>
+                        <legend>
+                                Наличие лекарств в аптеках 
+                        </legend>
+                        <div style = "column-count: 1">
+                        <p><label for="store_name">Название аптеки<span class="required">*</span></label> 
+                        <input type="text" name="store_name"  autofocus required pattern="[a-zA-Z]{3-20}"></p>
+                                               
+                         <p><label for="address">Адрес<span class="required">*</span></label> 
+                        <input type="text" name="address" required></p>
+                        
+
+                        
+                         <p><label for="phone">Телефон</label><input type="text" name="phone" placeholder="Формат: +375-29-1234567" pattern="\+\d{3}-\d{2}-\d{7}"></p>
+                         
+                         <p><label for="drug">Препарат<span class="required">*</span></label><input type="text" name="drug" required></p>
+                         
+                        
+                        </div>
+                        
+                </fieldset>
+                        <p><input type="submit" value="Далее">
+                        <input type="reset" value="Отменить">
+                    </p>
+                        </form>
+                        
+        </article>
+        <br>
+    </main>
+
+    <?php require("../../footer.php"); ?>
+<!-- <br>           
+		<footer> 
+            <span>Иокша Дмитрий гр.ПО-21 <sup>&#169;</sup> </span>
+            <span><a href="mailto:aiddeath@gmail.com"> E-mail: aiddeath@gmail.com</a></span> 
+            
+        </footer > -->
+</body>
+</html>

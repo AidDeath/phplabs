@@ -1,0 +1,124 @@
+.def_one {
+    padding: 0.5cm;
+    font-size: 12pt;
+    text-align: justify;
+    background: lightgrey;
+    color: brown;
+}
+
+.def_two {
+    padding: 0.5cm;
+    margin: 0 1cm;
+    background: cyan;
+}
+
+.nb{
+    float:left;
+    width:50%;
+    border: 1px solid black;
+    margin-right:10px; 
+}
+.borders {
+    text-align: justify;
+    border-left:3px solid yellow;
+    border-right:3px solid yellow;
+}
+
+.podl{
+    position: relative;
+    padding-bottom: 130px;
+    
+}
+.ground{
+    color:darkgrey;
+    font-size: 50px;
+    position: absolute;
+    z-index: 0;
+    top:0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+}
+.poster{
+    position: absolute;
+    color:brown;
+    z-index: 1;
+   
+}
+
+.columns{
+    column-width: 200px;
+    column-count: 2;
+    column-gap: 30px;
+    column-rule: 4px solid #ccc;
+}
+
+.column::first-letter {
+ font-size: 30px;
+ color:#f03b04;
+ font-weight: bold;
+font-style: italic;
+}
+
+
+.scroll1 {
+    width: 400px;
+    height:200px;
+    overflow: auto;
+}
+
+.scroll2 {
+    border-top:3px solid green;
+    margin-top: 10px;
+    width: 400px;
+    height:200px;
+    overflow: auto;
+}
+/*
+.pos{
+    position: relative;
+    height: 70px;
+
+}
+.df3{
+ position: absolute;
+ font-size: 50px;
+ color: black;
+}
+.df3:nth-child(2){
+   top:1px;
+   left:1px;
+   color: rgb(126, 126, 126);
+   }
+ .df3:nth-child(3){
+    top:2px;
+    left:2px;
+    color: rgb(190, 190, 190);
+}
+
+.pos .d1{
+    width:60px;
+    height: 60px;
+    position: absolute;
+   background: orange;
+}
+.pos .d2{
+    width:140px;
+    height: 40px;
+    position: absolute;
+    top:5px;
+    left:20px;
+   background:violet;
+}
+
+.pos .d3{
+    width:40px;
+    height: 40px;
+    position: absolute;
+    z-index: 10;
+    top:25px;
+    left:60px;
+   background:blue;
+}
+*/
+

@@ -1,0 +1,119 @@
+logo{
+    
+/*    border: 1px solid red;*/
+    float: left;
+    position: relative;
+
+}
+
+.name {
+    font-size: 30px;
+    font-weight: 600;
+    font-family: "Verdana", serif;
+    color:blue;
+    font-style: italic;
+    margin:0;
+    padding: 18px;
+    text-align: center;
+  
+    
+}
+
+.name2{
+    margin-top: -74px;
+    margin-right: 4px;
+    color:cadetblue;
+    position: inherit;
+    text-shadow: 1px 1px 1px blue, 0 0 1em blue; 
+    
+}
+header {
+/*    border: 1px solid black;*/
+    background-image: url("../img/Head.jpg");
+    background-size: cover;
+    background-position: center -130px;
+
+    
+}
+article {
+/*    background-color: rgba(6,255,255,0.9);*/
+    background-image: url("../img/main-background.jpg");
+    background-size:cover;
+    min-height: 500px;
+}
+
+.mainmenu{
+
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 50px;
+    text-align: center;
+    
+}
+ nav li{
+    color:dodgerblue;
+    display: inline-block;
+    width: fixed;
+    border: 1px solid blue;
+    border-radius: 15px;
+    list-style: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-image: url("../img/unpressed.jpg");
+    
+     
+}
+p{
+    font-size: 18px;
+}
+td {
+    text-align: center;
+}
+
+li.active{
+     background-image: url("../img/pressed.jpg");
+}
+
+.submenu{
+    margin: 0;
+    margin-top: auto;
+    line-height: 30px;
+    font-size: 18px;
+    padding-top: 10px;
+}
+.submenu a{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.poem{
+    margin-left: 21%;
+    margin-right: auto;
+    font-size: 18px;
+    font-family: "Comic Sans MS";
+}
+
+footer{
+    margin-top: 10px;
+    text-align: center;
+    background-color:aquamarine
+}
+
+.qoutes{
+    margin-left: 10%;
+    font-size: 120%
+}
+.lists{
+    margin-left: 15%;
+    font-size: 110%;
+}
+
+.lists ul li{
+    list-style:square;
+}
+.lists ol li{
+    list-style:upper-roman;
+}

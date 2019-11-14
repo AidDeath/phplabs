@@ -1,0 +1,103 @@
+.lbl {
+    background: #0692ce;
+    border:2px solid rgb(73, 73, 73);
+    height: 90px;
+    text-align: center;
+    border-radius: 8px;
+    color: #ffffff;
+    line-height: 90px;
+    padding:15px;
+    font-size:3.5vw;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #ccc,
+              1px 2px 1px #c9c9c9,
+               3px 3px 1px #bbb,
+               4px 4px 1px #b9b9b9,
+               6px 5px 1px #aaa;
+}
+
+.shadows{
+    font-size:22px;
+    text-shadow: 1px 1px 2px #ffae00,
+    -2px -2px 2px #0062ff,
+     3px 3px 2px #fa2c2c;
+    
+}
+.gradients, .filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.gradients div{
+    height: 200px;
+    margin: 5px;
+    flex:1 1 200px;
+}
+.gradients .gradient1 {
+    background: linear-gradient(90deg, #13FF9F, #C5DDE8);
+    
+}
+.gradients .gradient2 {
+    background: linear-gradient(45deg, #ff626e  20%, #7c52cc 70%);
+}
+.gradients .gradient3 {
+    background: radial-gradient( white, yellow);
+}
+
+.filters {
+    margin-top:20px;
+}
+.filters div{
+    height: 256px;
+    width: 256px;
+    margin: 5px;
+}
+
+.filters .filter1_1 {
+    background:url(../../img/filter1.png); 
+    background-size:cover;
+    filter: blur(2px);
+}
+
+.filters .filter1_2 {
+    background:url(../../img/filter1.png); 
+    filter: saturate(300%);
+    
+}
+
+.filters .filter1_3 {
+    background:url(../../img/filter1.png); 
+   filter: grayscale(0.75);
+  
+}
+
+.filters .filter2_1 {
+    background:url(../../img/filter2.png); 
+    background-size:cover;
+    filter:invert(1);
+}
+.filters .filter2_2 {
+    background:url(../../img/filter2.png); 
+    background-size:cover;
+    filter:opacity(30%);
+}
+.filters .filter2_3 {
+    background:url(../../img/filter2.png); 
+    background-size:cover;
+     filter:brightness(3);
+}
+.filters .filter3_1 {
+    background:url(../../img/filter3.png); 
+    background-size:cover;
+    filter:contrast(3);
+}
+.filters .filter3_2 {
+    background:url(../../img/filter3.png); 
+    background-size:cover;
+    filter:sepia();
+}
+.filters .filter3_3 {
+    background:url(../../img/filter3.png); 
+    background-size:cover;
+    filter: drop-shadow(0 0 20px rgba(155,255,0,0.9));
+}
