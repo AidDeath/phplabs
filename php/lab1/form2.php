@@ -1,17 +1,22 @@
 <?php 
 session_start ();
+
 require("../../header.php"); 
+
+if (!empty($_GET["drug"])){
 $_SESSION["store_name"] = $_GET["store_name"];
 $_SESSION["drug"] = $_GET["drug"];
 $_SESSION["address"] = $_GET["address"];
-$_SESSION["phone"] = $_GET["phone"]; //данные из формы 1 пишем в сессию
+$_SESSION["phone"] = $_GET["phone"]; //данные из формы 1 пишем в сессию был переход с 1 страницы
+}
 
+if (!empty($_GET["date"])){
 $_SESSION["date"] = $_GET["date"];
 $_SESSION["email"] = $_GET["email"];
 $_SESSION["url"] = $_GET["url"];
 if (!isset($_GET['receipt'])) unset($_SESSION["receipt"]);
 if (isset($_GET['receipt'])) $_SESSION["receipt"] = $_GET["receipt"];   //данные из формы 3 пишем в сессию
-
+}                                                                       //если был переход с 3 страницы
 ?>
 <script>
 function updateCount(val) {
@@ -57,7 +62,7 @@ else {document.getElementById('drug_count').innerHTML=val;}
 
                         
                         <p><label for="price">Цена &#128<span class="required">*</span></label>
-                        <input type="number" name ="price" required value= "<?php echo isset($_SESSION["price"]) ? $_SESSION["price"] : "100";?>"> </p>
+                        <input type="number" name ="price" required pattern="\d+.?\d{0,2}" value= "<?php echo isset($_SESSION["price"]) ? $_SESSION["price"] : "100";?>"> </p>
                         
 
                         <p><label for="count">Количество упаковок</label>  

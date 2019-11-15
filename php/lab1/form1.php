@@ -17,7 +17,7 @@ $_SESSION["dose"] = $_GET["dose"];
                         <div style = "column-count: 1">
 
                         <p><label for="store_name">Название аптеки<span class="required">*</span></label> 
-                        <input type="text" name="store_name"  autofocus required value= "<?php echo isset($_SESSION["store_name"]) ? $_SESSION["store_name"] : "";?>"></p>
+                        <input type="text" name="store_name" autofocus required value= "<?php echo isset($_SESSION["store_name"]) ? $_SESSION["store_name"] : "";?>"></p>
                                                
                         <p><label for="address">Адрес<span class="required">*</span></label> 
                         <input type="text" name="address" required value= "<?php echo isset($_SESSION["address"]) ? $_SESSION["address"] : "";?>"></p>

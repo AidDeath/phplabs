@@ -1,5 +1,6 @@
 <?php 
 session_start ();
+
 $_SESSION["drug_type"] = $_GET["drug_type"];
 $_SESSION["drug_count"] = $_GET["drug_count"];
 $_SESSION["price"] = $_GET["price"];
@@ -26,11 +27,11 @@ require("../../header.php");
                         <input type="date" name ="date" required value= <?php echo isset($_SESSION["date"])? $_SESSION["date"] : "2019-11-14"?>></p> 
                         
                         <p><label for="email">Почта</label>
-                        <input type="email" name ="email" placeholder="example@domain.com" value= <?php echo isset($_SESSION["email"])? $_SESSION["email"] : ""?>> 
+                        <input type="email" name ="email" placeholder="example@domain.com"  value= <?php echo isset($_SESSION["email"])? $_SESSION["email"] : ""?>> 
                         </p>                      
                         
                         <p><label for="url">Ссылка на инструкцию</label>
-                        <input type="url" name = "url" value=<?php echo isset($_SESSION["url"])? $_SESSION["url"]: ""?>></p>
+                        <input type="url" name = "url" value=<?php echo isset($_SESSION["url"])? $_SESSION["url"]: "http://"?>></p>
                        
                         </div>
                         
