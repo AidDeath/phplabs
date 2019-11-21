@@ -41,7 +41,7 @@ require("../../header.php");
                         
                 </fieldset>
                 <div class="text-center">
-                        <p><input type="submit" value="Отправить" formaction="purgatory.php"></p>
+                        <p><input type="submit" value="Отправить" formaction="purgatory.php" formmethod="post"></p>
                         <p><input type="submit" formaction="form2.php" value="Назад"></p>  
                 </div>
                         </form>
