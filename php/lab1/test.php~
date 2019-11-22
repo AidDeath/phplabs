@@ -13,11 +13,10 @@ $str = '123\n';
 echo var_dump($str);
 
 $myFile = "/srv/http/testFile.txt";
-$fh = fopen($myFile, 'w') or die("can't open file");
-$stringData = "Первая строчка\n";
-fwrite($fh, $stringData);
-$stringData = "Вторая строчка\n";
-fwrite($fh, $stringData);
+$fh = fopen($myFile, 'a+t') or die("can't open file");
+$stringData = "Первая строчка/n";
+fwrite($fh, serialize($admin).'\n');
+
 fclose($fh);
  ?>
 

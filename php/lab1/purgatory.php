@@ -51,7 +51,9 @@ $_SESSION['auth']  = [$_POST['login'],$_POST['pwd1'],$_POST['pwd2']];
                    		if (md5(serialize($_SESSION['auth'])) == '010ba93659135ab933fd70d43de90f2c' OR 
                    		md5(serialize($_SESSION['auth'])) == '9a06cfb65be6c6dba6b1d62f84dd401c')  
                    		{
-                        if($_SESSION['auth'][0] == 'admin') echo '<input type="submit" formaction="form1.php" value="Форма ввода данных">';
+                        if($_SESSION['auth'][0] == 'admin') 
+                        echo '<input type="submit" formaction="form1.php" value="Форма ввода данных">';
+                        echo '<input type="submit" formaction="view.php" value="Просмотр данных">';
                         echo '<input type="submit" formaction="auth.php" value="Выход (LogOut)">';
                    		}
                    		else{
@@ -62,10 +64,32 @@ $_SESSION['auth']  = [$_POST['login'],$_POST['pwd1'],$_POST['pwd2']];
                    	}
                    	else {
 								if(!empty($_GET['doctor'])) { // from form 3
-                   		echo "<div class='alert alert-success'><strong>Данные формы сохранены</strong> Данные находятся в переменной _SESSION</div>";
+                   		echo "<div class='alert alert-success'><strong>Данные формы сохранены</strong> Данные находятся в файле /srv/http/file.txt</div>";
                    		echo '<input type="submit" formaction="form1.php" value="Форма ввода данных">
+                   		<input type="submit" formaction="view.php" value="Просмотр данных">
                      	<input type="submit" formaction="auth.php" value="Выход (LogOut)">';
-
+										// Тут будет запись данных в файл.
+										$data = [
+										$_SESSION['hospital'],
+										$_SESSION['md'],
+										$_SESSION['address'],
+										$_SESSION['phone'],
+										$_SESSION['branch'],
+										$_SESSION['beds'],
+										$_SESSION['rooms'],
+										$_SESSION['enternce'],
+										$_SESSION['branchphone'],
+										$_SESSION['email'],
+										$_SESSION['doctor'],
+										$_SESSION['date'],
+										$_SESSION['url'],
+										$_SESSION['category']
+										];
+										$file = "/srv/http/file.txt";										
+										$h_File = fopen($file, 'a+');
+										fwrite($h_File, serialize($data)."\n");
+										fclose($h_File);
+										
 								}
 								if(!empty($_GET['md'])) {// from form 1
 								echo '<input type="submit" formaction="form1.php" value="Форма ввода данных">
@@ -79,30 +103,7 @@ $_SESSION['auth']  = [$_POST['login'],$_POST['pwd1'],$_POST['pwd2']];
 
 
 
-<!-- 		 <div class="table">
-    <?php                
-    if (!empty($_GET)) {
-        $table ="<table border='2' id='table'>";
-        $table .="<thead>";
-            $table .="<th>Аптека</th>";
-            $table .="<th>Адрес</th>";
-            $table .="<th>Телефон</th>";
-            $table .="<th>Название</th>";
-            $table .="<th>Вид</th>";
-            $table .="<th>Цена, &#128</th>";
-            $table .="<th>Кол-во</th>";
-            $table .="<th>Доза</th>";
-            $table .="<th>Рецепт</th>";
-            $table .="<th>e-mail</th>";
-            $table .="<th>Инстр</th>";
-        $table .="</thead>";
-        $table .="</table>";
-                
-        echo $table;
-   
-    }
-        ?>
-        </div> -->
+
     </main>
     
     <?php require("../../footer.php"); ?>
