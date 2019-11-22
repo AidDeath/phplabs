@@ -4,7 +4,7 @@
     <body>
     <main>
     
- <div class="table">
+ <div >
     <?php                
 
         $table ="<table border='2'>";
@@ -23,22 +23,43 @@
             $table .="<th>Дата рожд</th>";
             $table .="<th>URL</th>";
             $table .="<th>Категория</th>";
+        $table .="</thead>";
 					/// здесь надо заполнить таблицу данными из файла.
 					// Видимо читать по очереди строки из файла, десериализовывать их и полученный массив загонять в массив   
 					$file = "/srv/http/file.txt";										
 					$h_File = fopen($file, 'r');
-                    
-                    while (!feof($h_Flie)){
-                       $data[] = fgets($h_File);
-                    }
+                    while(!feof($h_File)) $data[] = fgets($h_File);
 
-                    var_dump($data[0]);
-                          
-        $table .="</thead>";
+                    
+                    $rec =$rec = unserialize($data[0]);
+                    var_dump($rec[7]);
+                    $i=0;
+                    while($data[$i]){
+                        $rec = unserialize($data[$i]);
+                        $table .="<tr>";
+                        $table .="<td>".$rec[0]."</td>";
+                        $table .="<td>".$rec[1]."</td>";
+                        $table .="<td>".$rec[2]."</td>";
+                        $table .="<td>".$rec[3]."</td>";
+                        $table .="<td>".$rec[4]."</td>";
+                        $table .="<td>".$rec[5]."</td>";
+                        $table .="<td>".$rec[6]."</td>";
+                        $table .="<td>".$rec[7]."</td>";
+                        $table .="<td>".$rec[8]."</td>";
+                        $table .="<td>".$rec[9]."</td>";
+                        $table .="<td>".$rec[10]."</td>";
+                        $table .="<td>".$rec[11]."</td>";
+                        $table .="<td>".$rec[12]."</td>";
+                        $rec[13] = (!empty($rec[13])) ? "Высш" : "Обычн.";
+                        $table .="<td>".$rec[13]."</td>";
+                        $table .="</tr>";
+                    $i++;
+                    }
+                fclose($h_File);
+ 
         $table .="</table>";
                 
         echo $table;
-   		var_dump($data); 
         ?>
         
         
