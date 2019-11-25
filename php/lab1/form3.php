@@ -10,7 +10,9 @@ require("../../header.php");
 ?>
 <body>
 <main>
-    <div class="container text-right">Добро пожаловать, <?php echo $_SESSION['auth'][0];?></div>
+<div class="container text-right"><p>Добро пожаловать, <?php echo $_SESSION['auth'][0];?><p>  
+        <p><?php echo ($_COOKIE[$_SESSION[auth][0]] > 0) ? 'Вы заходили на сайт '.$_COOKIE[$_SESSION[auth][0]].' раз' : 'Вы впервые на сайте!' ?></p>      
+        </div>
         <article>  
 <!--            -->
        

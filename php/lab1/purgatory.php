@@ -46,8 +46,9 @@ $_SESSION['auth']  = [$_POST['login'],$_POST['pwd1'],$_POST['pwd2']];
 				<form method="post">
                    
                    <?php // отрисовка кнопок
-                   	if($_SERVER['HTTP_REFERER'] == 'http://localhost/phplabs/php/lab1/auth.php') 
-                   	{
+                   	//if($_SERVER['HTTP_REFERER'] == 'http://localhost/phplabs/php/lab1/auth.php' OR $_SERVER['HTTP_REFERER'] == 'http://localhost/phplabs/php/lab1/view.php')
+					if(strpos($_SERVER['HTTP_REFERER'],'auth.php') OR strpos($_SERVER['HTTP_REFERER'],'view.php'))   
+					{
                    		if (md5(serialize($_SESSION['auth'])) == '010ba93659135ab933fd70d43de90f2c' OR 
                    		md5(serialize($_SESSION['auth'])) == '9a06cfb65be6c6dba6b1d62f84dd401c')  
                    		{
@@ -77,7 +78,7 @@ $_SESSION['auth']  = [$_POST['login'],$_POST['pwd1'],$_POST['pwd2']];
 										$_SESSION['branch'],
 										$_SESSION['beds'],
 										$_SESSION['rooms'],
-										$_SESSION['enternce'],
+										$_SESSION['enterance'],
 										$_SESSION['branchphone'],
 										$_SESSION['email'],
 										$_SESSION['doctor'],
