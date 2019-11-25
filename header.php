@@ -8,7 +8,7 @@
     <LINK rel="stylesheet" href="../../css/lab5.css" type="text/css">
     <LINK rel="stylesheet" href="../../css/bootstrap.css" type="text/css">
     <LINK rel="stylesheet" href="../../css/bootstrap-grid.css" type="text/css">
-    <script src="../../js/bootstrap.min.js"></script>
+    <!-- <script src="../../js/bootstrap.min.js"></script> -->
 
     
         <header>
