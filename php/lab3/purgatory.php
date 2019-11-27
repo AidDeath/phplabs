@@ -1,8 +1,8 @@
    <?php 
    require("../../header.php");
-   session_start();
 
 if(empty($_POST)) {
+	session_start();
 	if(!empty($_GET['md'])) {// save form1 data to sess
 	$_SESSION["hospital"] = $_GET["hospital"];
 	$_SESSION["md"] = $_GET["md"];
@@ -19,28 +19,71 @@ if(empty($_POST)) {
 	}
 }
 else {
-	// save auth data to sess
-$_SESSION['auth']  = [$_POST['login'],$_POST['pwd1'],$_POST['pwd2']];
-    // 010ba93659135ab933fd70d43de90f2c  admin pwd1 pwd2
-    // 9a06cfb65be6c6dba6b1d62f84dd401c user 1234 qwer
-   if(!isset($_COOKIE[$_POST['login']])) {
-   	setcookie($_POST['login'],'1', 0x7FFFFFFF);
-   }
-   else {
-   	$tmp = $_COOKIE[$_POST['login']];
-   	$tmp++;
-   	setcookie($_POST['login'],$tmp, 0x7FFFFFFF);
-   }
+	
+	if ( !empty($_POST['password']) and !empty($_POST['login']) ) {
+		//Пишем логин и пароль из формы в переменные (для удобства работы):
+			$login = $_POST['login']; 
+			$password = $_POST['password']; 
+			
+			/*
+				Формируем и отсылаем SQL запрос:
+				ВЫБРАТЬ ИЗ таблицы_users ГДЕ поле_логин = $login
+			*/
+			$link = mysqli_connect('p:localhost','root','root','lab3');
+			$query = 'SELECT*FROM users WHERE login="'.$login.'"';
+			$result = mysqli_query($link,$query); //ответ базы запишем в переменную $result
+			
+			//Преобразуем ответ из БД в нормальный массив PHP:
+			$user = mysqli_fetch_assoc($result); 
+			
+	
+	//Если база данных вернула не пустой ответ - значит такой логин есть...
+			if (!empty($user)) {
+				//Получим соль:
+				$salt = $user['salt'];
+				//Посолим пароль из формы:
+				$saltedPassword = md5($password.$salt);
+	
+		//Если соленый пароль из базы совпадает с соленым паролем из формы...
+				if ($user['pwdhash'] == $saltedPassword) {
+					//Стартуем сессию:
+					session_start(); 
+	
+			//Пишем в сессию информацию о том, что мы авторизовались:
+					$_SESSION['auth'] = true; 
+					/*
+						Пишем в сессию логин и id пользователя
+						(их мы берем из переменной $user!):
+					*/
+					$_SESSION['isadmin'] = $user['isadmin']; 
+					$_SESSION['login'] = $user['login']; 
+				}
+				//Если соленый пароль из базы НЕ совпадает с соленым паролем из формы...
+				else {
+				//Выводим сообщение 'Неправильный логин или пароль'.
+				}
+			} else {
+				//Нет такого логина, выведем сообщение об ошибке.
+			}
+		}
+
+
+   
 } 
 
 ?>
     
     <body>
     <main>
-        
-        <div class="container text-right"><p>Добро пожаловать, <?php echo $_SESSION['auth'][0];?><p>  
-        <p><?php echo ($_COOKIE[$_SESSION[auth][0]] > 0) ? 'Вы заходили на сайт '.$_COOKIE[$_SESSION[auth][0]].' раз' : 'Вы впервые на сайте!' ?></p>      
-        </div>
+        <?php if ($_SESSION['auth']) {
+			$role = ($user["isadmin"]) ? "Администратор" :"Пользователь";
+			$info = '<div class="container text-right">
+			<p>Добро пожаловать, '.$_SESSION["login"].'<p>
+			<p>Вы вошли как ' .$role.'</p>         
+			</div>';
+			echo $info;
+			}
+		?>
         
 		 <div class="text-center">
 				<form method="post">
@@ -49,21 +92,27 @@ $_SESSION['auth']  = [$_POST['login'],$_POST['pwd1'],$_POST['pwd2']];
                    	//if($_SERVER['HTTP_REFERER'] == 'http://localhost/phplabs/php/lab1/auth.php' OR $_SERVER['HTTP_REFERER'] == 'http://localhost/phplabs/php/lab1/view.php')
 					if(strpos($_SERVER['HTTP_REFERER'],'auth.php') OR strpos($_SERVER['HTTP_REFERER'],'view.php') OR strpos($_SERVER['HTTP_REFERER'],'search.php') )   
 					{
-                   		if (md5(serialize($_SESSION['auth'])) == '010ba93659135ab933fd70d43de90f2c' OR 
-                   		md5(serialize($_SESSION['auth'])) == '9a06cfb65be6c6dba6b1d62f84dd401c')  
-                   		{
-                        if($_SESSION['auth'][0] == 'admin') 
-                        echo '<input type="submit" formaction="form1.php" value="Форма ввода данных">';
-						echo '<input type="submit" formaction="view.php" value="Просмотр данных">';
-						echo '<input type="submit" formaction="search.php" value="Поиск данных">';
-                        echo '<input type="submit" formaction="auth.php" value="Выход (LogOut)">';
-                   		}
+                   		if ($_SESSION['auth']) { 
+                   			
+                        	if($_SESSION['isadmin']) {
+                        	echo '<input type="submit" formaction="form1.php" value="Форма ввода данных">';
+							echo '<input type="submit" formaction="view.php" value="Просмотр данных">';
+							echo '<input type="submit" formaction="search.php" value="Поиск данных">';
+                        	echo '<input type="submit" formaction="auth.php" value="Выход (LogOut)">';
+							   }
+							   else{
+								echo '<input type="submit" formaction="view.php" value="Просмотр данных">';
+								echo '<input type="submit" formaction="search.php" value="Поиск данных">';
+								echo '<input type="submit" formaction="auth.php" value="Выход (LogOut)">'; 
+							   }
+					}
                    		else{
-           						     echo '<h1>Вход не выполнен</h1>
+										echo '<h1>Вход не выполнен</h1>
+										<h3>Проверьте введенные данные</h3>
                          <input type="submit" formaction="auth.php" value="Назад к форме логина">';
                             	
                    		}
-                   	}
+                   	}		//// Countinue from here!!! 
                    	else {
 								if(!empty($_GET['doctor'])) { // from form 3
                    		echo "<div class='alert alert-success'><strong>Данные формы сохранены</strong> Данные сохранены в базу данных</div>";
@@ -71,7 +120,7 @@ $_SESSION['auth']  = [$_POST['login'],$_POST['pwd1'],$_POST['pwd2']];
 						<input type="submit" formaction="view.php" value="Просмотр данных">
 						<input type="submit" formaction="search.php" value="Поиск данных"> 
                      	<input type="submit" formaction="auth.php" value="Выход (LogOut)">';
-										// Тут будет запись данных в файл.
+										// Тут будет запись данных в БД.
 										$data = [
 										$_SESSION['hospital'],
 										$_SESSION['md'],
