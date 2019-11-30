@@ -7,7 +7,7 @@ require("../../header.php");
 
 <div class="container-fluid col-md-6 justify-content-center">
 <form action="reg.php" method="post" >
-     <input type="text" class="w-50" placeholder="Ваш логин" name="login" pattern="^\D+$" required>
+     <input type="text" class="w-50" placeholder="Ваш логин" name="login" pattern="^\D+$" >
      <hr class="hr-xs">
      <input type="password" class="w-50" placeholder="Придумайте пароль" name="password">
      <input type="password" class="w-50" placeholder="Подтверждение пароля"  name="password_confirm">
