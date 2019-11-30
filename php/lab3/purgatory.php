@@ -57,6 +57,7 @@ else {
 					*/
 					$_SESSION['isadmin'] = $user['isadmin']; 
 					$_SESSION['login'] = $user['login']; 
+					$_SESSION['ban_until'] = $user['ban_until'];
 				}
 				//Если соленый пароль из базы НЕ совпадает с соленым паролем из формы...
 				else {
@@ -76,7 +77,7 @@ else {
     <body>
     <main>
         <?php if ($_SESSION['auth']) {
-			$role = ($user["isadmin"]) ? "Администратор" :"Пользователь";
+			$role = ($_SESSION["isadmin"]) ? "Администратор" :"Пользователь";
 			$info = '<div class="container text-right">
 			<p>Добро пожаловать, '.$_SESSION["login"].'<p>
 			<p>Вы вошли как ' .$role.'</p>         
@@ -90,14 +91,15 @@ else {
                    
                    <?php // отрисовка кнопок
                    	//if($_SERVER['HTTP_REFERER'] == 'http://localhost/phplabs/php/lab1/auth.php' OR $_SERVER['HTTP_REFERER'] == 'http://localhost/phplabs/php/lab1/view.php')
-					if(strpos($_SERVER['HTTP_REFERER'],'auth.php') OR strpos($_SERVER['HTTP_REFERER'],'view.php') OR strpos($_SERVER['HTTP_REFERER'],'search.php') )   
+					if(strpos($_SERVER['HTTP_REFERER'],'auth.php') OR strpos($_SERVER['HTTP_REFERER'],'view.php') OR strpos($_SERVER['HTTP_REFERER'],'search.php') OR strpos($_SERVER['HTTP_REFERER'],'adm.php') )   
 					{
-                   		if ($_SESSION['auth']) { 
+                   		if ($_SESSION['auth']AND ($_SESSION['ban_until'] < $time = time())) { 
                    			
                         	if($_SESSION['isadmin']) {
                         	echo '<input type="submit" formaction="form1.php" value="Форма ввода данных">';
 							echo '<input type="submit" formaction="view.php" value="Просмотр данных">';
 							echo '<input type="submit" formaction="search.php" value="Поиск данных">';
+							echo '<input type="submit" formaction="adm.php" value="Админка">';
                         	echo '<input type="submit" formaction="auth.php" value="Выход (LogOut)">';
 							   }
 							   else{
@@ -106,11 +108,17 @@ else {
 								echo '<input type="submit" formaction="auth.php" value="Выход (LogOut)">'; 
 							   }
 					}
-                   		else{
-										echo '<h1>Вход не выполнен</h1>
-										<h3>Проверьте введенные данные</h3>
-                         <input type="submit" formaction="auth.php" value="Назад к форме логина">';
-                            	
+						   else{   
+							echo '<h1>Вход не выполнен</h1>';
+							if($_SESSION['ban_until']){
+								
+								echo '<h3>Пользователь забанен</h3>
+								<input type="submit" formaction="auth.php" value="Назад к форме логина">';
+							}
+							else{
+								echo '<h3>Проверьте введенные данные</h3>
+								<input type="submit" formaction="auth.php" value="Назад к форме логина">';
+							}	
                    		}
                    	}		//// Countinue from here!!! 
                    	else {
