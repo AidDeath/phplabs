@@ -9,6 +9,7 @@ if(!isset($_SESSION['count'])){
 if($_GET['sess']){
     unset($_SESSION);
     session_destroy();
+    session_start();
 }
 
 if(!isset($_SESSION['logintime'])){
@@ -66,7 +67,7 @@ if($_GET['usb-sata']){
     $_SESSION['amount'] = $_SESSION['amount'] + $_GET['usb-sata'];
     $_SESSION['cart']['usb-sata']++;
 }//sdcard  postcard   usb-eth  usb-flash   wlan  mouse mem-ddr2    cardreader usb-sata
-var_dump($_SESSION['cart']);
+//var_dump($_SESSION['cart']);
 
 ?>
 
@@ -75,15 +76,17 @@ var_dump($_SESSION['cart']);
 <h1>Интернет-магазин</h1>
 <div class="container">
 <div class="row">
-<div class="col-7">
+<div class="col-3">
 <div class="row">Вы вошли на сайт <?php echo time() - $_SESSION['logintime']?> сек. назад</div>
 <div class="row"><?= ($_SESSION['refresh'] > 0) ? 'Страница обновлена '.$_SESSION['refresh'].' раз' : "Страница не обновлялась"?></div>
 </div>
 <div class="col-1"><form><input type="submit" name="sess" value="Loguot" class="btn btn-primary"></form></div>
-<div class="col-4">
+<div class="col-4"></div>
+<div class="col-3">
 <div class="row">В корзине <?= $_SESSION['count']?> товаров</div>
 <div class="row">На общую сумму <?= $_SESSION['amount']?> руб.</div>           
 </div>
+<div class="col-1"><div class="row"><a href="cart.php" class="btn btn-primary">Подробнее</a></div></div>
 </div>
 <br>
 <div class="row">  
