@@ -1,0 +1,44 @@
+*{
+	display:block;
+}
+hospitals{
+display:flex;
+}
+
+Speciality {
+display:block;
+flex-grow:1;
+
+border:1px solid gray;
+font-size:20px;
+font-weight:bold;
+padding:10px;
+}
+
+hospital {
+	font-size:18px;
+	font-weight:normal;
+	background: #eeeeee;	
+	border-bottom: 2px solid #002544;
+	margin-left: 40px;
+	padding:10px;
+}
+details Owner {
+	background: #15c6e6;
+	color:white;
+	margin: 5px;
+	padding:5px;
+}
+
+details hospital hospital {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+hospital main_doctor[grade="high"] {
+	font-style: italic;
+	font-weight: bold;
+}
+
+Speciality[type="body"] Owner {
+	background: #06ec19;
+}

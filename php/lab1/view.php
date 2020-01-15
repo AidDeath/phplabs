@@ -28,8 +28,7 @@
     }
     }
     ?>
-
-   
+    
     <body>
     <main>
     <div class="container text-right"><p>Добро пожаловать, <?php echo $_SESSION['auth'][0];?><p>  

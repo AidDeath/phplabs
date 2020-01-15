@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<carslist>
+	<gear type="mechanic">
+		<year val="2005">
+			<mark name="Audi">
+				<model id="A3">
+					<car>
+						<platenumber>1234-EA3</platenumber>
+						<registrationdate>10.10.2005</registrationdate>
+						<color>red</color>
+						<run type="km">10000</run>
+						<enginesize>5000</enginesize>
+					</car>
+					<car>
+						<platenumber>0574-EE2</platenumber>
+						<registrationdate>19.04.2005</registrationdate>
+						<color>green</color>
+						<run type="km">55700</run>
+						<enginesize>5200</enginesize>
+					</car>
+				</model>
+				<model id="A5">
+					<car>
+						<platenumber>5671-EA3</platenumber>
+						<registrationdate>05.12.2005</registrationdate>
+						<color>black</color>
+						<run type="km">45000</run>
+						<enginesize>3500</enginesize>
+					</car>
+				</model>
+			</mark>
+			<mark name="BMW">
+				<model id="Series3">
+					<car>
+						<platenumber>4568-MM3</platenumber>
+						<registrationdate>01.07.2005</registrationdate>
+						<color>blue</color>
+						<run type="km">11475</run>
+						<enginesize>4200</enginesize>
+					</car>
+				</model>
+			</mark>
+		</year>
+		<year val="2007">
+			<mark name="Ford">
+				<model id="Focus">
+					<car>
+						<platenumber>7896-AC3</platenumber>
+						<registrationdate>11.07.2007</registrationdate>
+						<color>grey</color>
+						<run type="km">50000</run>
+						<enginesize>3700</enginesize>
+					</car>
+				</model>
+			</mark>
+			<mark name="Toyota">
+				<model id="Camry">
+					<car>
+						<platenumber>1238-MT7</platenumber>
+						<registrationdate>21.07.2006</registrationdate>
+						<color>black</color>
+						<run type="km">1000</run>
+						<enginesize>3650</enginesize>
+					</car>
+				</model>
+			</mark>
+		</year>
+	</gear>
+	<gear type="automatic">
+		<year val="2008">
+			<mark name="Audi">
+				<model id="A4">
+					<car>
+						<platenumber>1114-EA1</platenumber>
+						<registrationdate>10.12.2008</registrationdate>
+						<color>gray</color>
+						<run type="km">7500</run>
+						<enginesize>5000</enginesize>
+					</car>
+				</model>				
+			</mark>
+			<mark name="BMW">
+				<model id="Series5">
+					<car>
+						<platenumber>4568-MM3</platenumber>
+						<registrationdate>27.07.2008</registrationdate>
+						<color>blue</color>
+						<run type="km">11000</run>
+						<enginesize>4200</enginesize>
+					</car>
+					<car>
+						<platenumber>1234-TT5</platenumber>
+						<registrationdate>20.05.2008</registrationdate>
+						<color>white</color>
+						<run type="km">6500</run>
+						<enginesize>4500</enginesize>
+					</car>
+				</model>
+			</mark>
+		</year>
+		<year val="2009">
+			<mark name="Ford">
+				<model id="Focus">
+					<car>
+						<platenumber>9875-AC1</platenumber>
+						<registrationdate>09.07.2009</registrationdate>
+						<color>black</color>
+						<run type="km">47010</run>
+						<enginesize>3650</enginesize>
+					</car>
+				</model>
+			</mark>
+			<mark name="Toyota">
+				<model id="Corolla">
+					<car>
+						<platenumber>1233-MT2</platenumber>
+						<registrationdate>26.11.2009</registrationdate>
+						<color>black</color>
+						<run type="km">40000</run>
+						<enginesize>3850</enginesize>
+					</car>
+				</model>
+			</mark>
+		</year>
+	</gear>
+</carslist>

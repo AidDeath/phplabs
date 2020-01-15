@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="xslthtml.xsl"?>
+<root>
+
+  <administrators>
+      <person>
+          <name>Витязев С. А.</name>      
+          <avg_month_wage>6000</avg_month_wage>
+          <vacation_days>39</vacation_days>
+      </person>
+            <person>
+          <name>Папишев А. Ф.</name>      
+          <avg_month_wage>6030</avg_month_wage>
+          <vacation_days>45</vacation_days>
+      </person>
+      <person>
+          <name>Лаврин К. К.</name>      
+          <avg_month_wage>8000</avg_month_wage>
+          <vacation_days>39</vacation_days>
+      </person>
+  </administrators>
+  
+  <medics>
+        <person>
+          <name>Потапов В. Б.</name>      
+          <avg_month_wage>2460</avg_month_wage>
+          <vacation_days>30</vacation_days>
+      </person>
+        <person>
+          <name>Бегайлов П. Б.</name>      
+          <avg_month_wage>2160</avg_month_wage>
+          <vacation_days>30</vacation_days>
+      </person>
+              <person>
+          <name>Вызбин Ф. К.</name>      
+          <avg_month_wage>1460</avg_month_wage>
+          <vacation_days>28</vacation_days>
+      </person>
+              <person>
+          <name>Ларин В. П.</name>      
+          <avg_month_wage>2556</avg_month_wage>
+          <vacation_days>30</vacation_days>
+      </person>
+              <person>
+          <name>Раков Р. Ф.</name>      
+          <avg_month_wage>3460</avg_month_wage>
+          <vacation_days>30</vacation_days>
+      </person>      
+  </medics>
+
+  <etc>
+  
+      <person>
+          <name>Велиган А. А.</name>      
+          <avg_month_wage>1356</avg_month_wage>
+          <vacation_days>24</vacation_days>
+      </person>
+            <person>
+          <name>Кишко И. Д.</name>      
+          <avg_month_wage>1266</avg_month_wage>
+          <vacation_days>23</vacation_days>
+      </person>
+            <person>
+          <name>Викторов А. В.</name>      
+          <avg_month_wage>2356</avg_month_wage>
+          <vacation_days>26</vacation_days>
+      </person>
+            <person>
+          <name>Ларин В. П.</name>      
+          <avg_month_wage>1356</avg_month_wage>
+          <vacation_days>19</vacation_days>
+      </person>
+</etc>
+</root>

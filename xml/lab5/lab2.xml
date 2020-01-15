@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="#s1" type="text/css" ?>
+<?xml-stylesheet href="style.css" type="text/css"?>
+
+<!DOCTYPE hospitals SYSTEM "lab5.dtd">
+<hospitals>
+<s id="s1">
+Speciality city{background: red;}
+s 
+{
+display:none;
+}
+</s>
+	<Speciality type="body">
+		<city val="Клецк">
+			<details>
+				<Owner>Государственные</Owner>
+				<holding name="УЗ ЦКРОВОБАЗС">
+					<hospital>
+						<main_doctor grade="high">Пистун Вероника Герасимовна</main_doctor>
+						<patients_amount>1</patients_amount>
+						<phone>65195</phone>
+						<date_of_foundation>22.12.1960</date_of_foundation>
+						<number_of_rooms>4</number_of_rooms>
+					</hospital>
+					<hospital>
+						<main_doctor grade="low">Бегайловко Гаврольд Павлович</main_doctor>
+						<patients_amount>111</patients_amount>
+						<phone>54165</phone>
+						<date_of_foundation>23.05.1964</date_of_foundation>
+					<number_of_rooms>56</number_of_rooms>
+					</hospital>
+				</holding>
+				<holding name="ГУУЗ Центральный главный сельский ФАП">
+					<hospital>
+						<main_doctor grade="high">Врагирович Беда Анатольевна</main_doctor>
+						<patients_amount>0</patients_amount>
+						<phone>66666</phone>
+						<date_of_foundation>01.01.1646</date_of_foundation>
+						<number_of_rooms>1</number_of_rooms>
+					</hospital>
+				</holding>
+			</details>
+			<details>
+				<Owner>ООО В Добрый путь!</Owner>
+				<holding name="Лаванда">
+					<hospital>
+						<main_doctor grade="medium">Верковатов Дионис Владленович</main_doctor>
+						<patients_amount>65</patients_amount>
+						<phone>51656</phone>
+						<date_of_foundation>13.08.2022</date_of_foundation>
+						<number_of_rooms>65</number_of_rooms>
+					</hospital>
+				</holding>
+			</details>
+		</city>
+		<city val="Несвиж">
+			<details>
+				<Owner>ОДО Никаких гарантий</Owner>
+				<holding name="ИП Петровский">
+					<hospital>
+						<main_doctor grade="high">Тимошко Петр Александрович</main_doctor>
+						<patients_amount>92</patients_amount>
+						<phone>62598</phone>
+						<date_of_foundation>11.12.2001</date_of_foundation>
+						<number_of_rooms>22</number_of_rooms>
+					</hospital>
+				</holding>
+			</details>
+			<details>
+				<Owner>ООО Персональный подход</Owner>
+				<holding name="Вискозиметр">
+					<hospital>
+						<main_doctor grade="low">Зизико Дионис Владленович</main_doctor>
+						<patients_amount>11</patients_amount>
+						<phone>84516</phone>
+						<date_of_foundation>01.01.1990</date_of_foundation>
+						<number_of_rooms>8</number_of_rooms>
+						</hospital>
+				</holding>
+			</details>
+		</city>
+	</Speciality>
+	<Speciality type="psycho">
+		<city val="Борисов">
+			<details>
+				<Owner>Сила гомеопатии</Owner>
+				<holding name="Местная анастезия">
+					<hospital>
+						<main_doctor grade="high">Зыкина Татьяна Григорьевна</main_doctor>
+						<patients_amount>6</patients_amount>
+						<phone>515651</phone>
+						<date_of_foundation>23.03.2012</date_of_foundation>
+						<number_of_rooms>14</number_of_rooms>
+					</hospital>
+				</holding>				
+			</details>
+			<details>
+				<Owner>Свидетели лечения пивом</Owner>
+				<holding name="Легкий путь">
+					<hospital>
+						<main_doctor grade="medium">Лурковский Антон Павлович</main_doctor>
+						<patients_amount>66</patients_amount>
+						<phone>66587</phone>
+						<date_of_foundation>02.02.1984</date_of_foundation>
+						<number_of_rooms>30</number_of_rooms>
+					</hospital>
+					<hospital>
+						<main_doctor grade="high">Отченаш Вероника Герасимовна</main_doctor>
+						<patients_amount>30</patients_amount>
+						<phone>65162</phone>
+						<date_of_foundation>09.12.2000</date_of_foundation>
+						<number_of_rooms>7</number_of_rooms>
+					</hospital>
+				</holding>
+			</details>
+		</city>
+		<city val="Малорита">
+			<details>
+				<Owner>ОАА Врата рая</Owner>
+				<holding name="Подсознание">
+					<hospital>
+						<main_doctor grade="medium">Пивоварская Тамара Петровна</main_doctor>
+						<patients_amount>69</patients_amount>
+						<phone>51513</phone>
+						<date_of_foundation>13.12.1922</date_of_foundation>
+						<number_of_rooms>44</number_of_rooms>
+					</hospital>
+				</holding>
+			</details>
+			<details >
+				<Owner>АРОВЛ Миорский властелин</Owner>
+				<holding name="Без Б">
+					<hospital>
+						<main_doctor grade="high">Грозная Вероника Герасимовна</main_doctor>
+						<patients_amount>12</patients_amount>
+						<phone>76543</phone>
+						<date_of_foundation>16.03.1888</date_of_foundation>
+						<number_of_rooms>43</number_of_rooms>
+					</hospital>
+				</holding>
+			</details>
+		</city>
+	</Speciality>
+
+</hospitals>

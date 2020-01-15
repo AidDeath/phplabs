@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="hospitals">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="s"/>
+        <xs:element ref="Speciality" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="s">
+    <xs:complexType mixed="true">
+      <xs:attribute name="id" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Speciality">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="city" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="type" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="city">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="details" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="val" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="details">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Owner" type="xs:string"/>
+        <xs:element ref="holding" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="holding">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="hospital" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="hospital">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="main_doctor"/>
+        <xs:element name="patients_amount" type="xs:string"/>
+        <xs:element name="phone" type="xs:string"/>
+        <xs:element name="date_of_foundation" type="xs:string"/>
+        <xs:element name="number_of_rooms" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="main_doctor">
+    <xs:complexType mixed="true">
+      <xs:attribute name="grade" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

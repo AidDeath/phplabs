@@ -8,9 +8,7 @@
     <LINK rel="stylesheet" href="../../css/lab5.css" type="text/css">
     <LINK rel="stylesheet" href="../../css/bootstrap.css" type="text/css">
     <LINK rel="stylesheet" href="../../css/bootstrap-grid.css" type="text/css">
-    <!-- <script src="../../js/bootstrap.min.js"></script> -->
 
-    
         <header>
 		<h1 class = "name"> Иокша Дмитрий Александрович</h1>
         <h1 class = "name name2">Иокша Дмитрий Александрович</h1>
@@ -19,13 +17,9 @@
                 <!-- <li><a href ="">Форматирование</a></li> -->
                 <!-- <li><a href="">Далее</a></li>
                 <li><a href="">Выход</a></li> -->
-
             </ul>          
         </nav>
-        <div class="container">
-
-                
-             
+        <div class="container">          
         </div>
 	</header>
 

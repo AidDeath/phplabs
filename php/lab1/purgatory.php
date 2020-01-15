@@ -34,19 +34,16 @@ $_SESSION['auth']  = [$_POST['login'],$_POST['pwd1'],$_POST['pwd2']];
 } 
 
 ?>
-    
     <body>
     <main>
-        
         <div class="container text-right"><p>Добро пожаловать, <?php echo $_SESSION['auth'][0];?><p>  
-        <p><?php echo ($_COOKIE[$_SESSION[auth][0]] > 0) ? 'Вы заходили на сайт '.$_COOKIE[$_SESSION[auth][0]].' раз' : 'Вы впервые на сайте!' ?></p>      
+        <p><?php echo ($_COOKIE[$_SESSION['auth'][0]] > 0) ? 'Вы заходили на сайт '.$_COOKIE[$_SESSION['auth'][0]].' раз' : 'Вы впервые на сайте!' ?></p>      
         </div>
         
 		 <div class="text-center">
 				<form method="post">
                    
                    <?php // отрисовка кнопок
-                   	//if($_SERVER['HTTP_REFERER'] == 'http://localhost/phplabs/php/lab1/auth.php' OR $_SERVER['HTTP_REFERER'] == 'http://localhost/phplabs/php/lab1/view.php')
 					if(strpos($_SERVER['HTTP_REFERER'],'auth.php') OR strpos($_SERVER['HTTP_REFERER'],'view.php') OR strpos($_SERVER['HTTP_REFERER'],'search.php') )   
 					{
                    		if (md5(serialize($_SESSION['auth'])) == '010ba93659135ab933fd70d43de90f2c' OR 
@@ -60,8 +57,7 @@ $_SESSION['auth']  = [$_POST['login'],$_POST['pwd1'],$_POST['pwd2']];
                    		}
                    		else{
            						     echo '<h1>Вход не выполнен</h1>
-                         <input type="submit" formaction="auth.php" value="Назад к форме логина">';
-                            	
+                         <input type="submit" formaction="auth.php" value="Назад к форме логина">';  	
                    		}
                    	}
                    	else {
@@ -96,17 +92,15 @@ $_SESSION['auth']  = [$_POST['login'],$_POST['pwd1'],$_POST['pwd2']];
 								}
 								if(!empty($_GET['md'])) {// from form 1
 								echo '<input type="submit" formaction="form1.php" value="Форма ввода данных">
-                     	<input type="submit" formaction="auth.php" value="Выход (LogOut)">';
+								<input type="submit" formaction="view.php" value="Просмотр данных">
+								<input type="submit" formaction="search.php" value="Поиск данных">
+								<input type="submit" formaction="auth.php" value="Выход (LogOut)">';
                    		echo "<div class='alert alert-warning'><strong>Заполнение формы прервано!</strong> Данные ещё доступны для редактирования.</div>";
 								}                   	
                    	}
                     ?>                 
 				</form> 
 		 </div>
-
-
-
-
     </main>
     
     <?php require("../../footer.php"); ?>

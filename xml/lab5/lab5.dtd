@@ -1,0 +1,23 @@
+<!ELEMENT hospitals (s, Speciality+)>
+<!ELEMENT s (#PCDATA)>
+<!ATTLIST s
+          id CDATA #REQUIRED>
+<!ELEMENT Speciality (city+)>
+<!ATTLIST Speciality
+          type (body|psycho) "body">
+<!ELEMENT city (details+)>
+<!ATTLIST city
+          val CDATA #REQUIRED>
+<!ELEMENT details (Owner, holding+)>
+<!ELEMENT Owner (#PCDATA)>
+<!ELEMENT holding (hospital+)>
+<!ATTLIST holding
+          name CDATA #IMPLIED>
+<!ELEMENT hospital (main_doctor, patients_amount, phone, date_of_foundation, number_of_rooms)>
+<!ELEMENT main_doctor (#PCDATA)>
+<!ATTLIST main_doctor
+          grade CDATA #REQUIRED>
+<!ELEMENT patients_amount (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT date_of_foundation (#PCDATA)>
+<!ELEMENT number_of_rooms (#PCDATA)>

@@ -1,0 +1,17 @@
+﻿<script type="text/javascript"> 
+  var objDom; 
+  objDom=new ActiveXObject("MSXML.DOMDocument"); 
+
+  var objNode, objText; 
+  objNode=objDom.createElement("root"); 
+  objText=objDom.createTextNode("Some data in element"); 
+  objDom.appendChild(objNode); 
+  objNode.appendChild(objText); 
+
+  var objAttr; 
+  objAttr=objDom.createAttribute("id"); 
+  objAttr.nodeValue="123"; 
+  objNode.attributes.setNamedItem(objAttr); 
+
+  alert(objDom.xml); 
+</script>

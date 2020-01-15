@@ -32,19 +32,14 @@ $_SESSION["branchphone"] = $_GET["branchphone"];
                         <p><label for="md">Главный врач<span class="required">*</span></label>
                         <input type="text" name="md" required placeholder="Иванов И. А." pattern="^[a-zA-Z-а-яА-Я]+\s[A-ZА-Я]\.\s[A-ZА-Я]\.$" value= "<?php echo isset($_SESSION["md"]) ? $_SESSION["md"] : "";?>"></p>
                         
-
                         </div>
-                        
-                        
+                                   
                 </fieldset>
                 <div class="text-center">
                 <p><input type="submit" value="Далее"></p>
                 <p><input type="submit" formaction="purgatory.php" value="Отменить заполнение формы"></p>
                 </div>
-                        
-                        
-
-        
+     
         </article>
         <br>
     </main>

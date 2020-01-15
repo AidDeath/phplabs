@@ -85,9 +85,7 @@
                         
                         fill(0);
                         fclose($h_File);
-                    }
- 
-					
+                    }		
         ?>
 
         <form action="search.php">
